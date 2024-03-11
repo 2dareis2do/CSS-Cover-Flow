@@ -1,14 +1,14 @@
 $component: "slider";
 
 $slider-items: 8;
-$slider-visible-item: 5;
+$slider-visible-item: 3;
 $slider-viewport-width: 100%;
 $slider-viewbox-ratio: calc(1/1);
 $slider-item-active: 5;
 // $slider-viewbox-width: calc($slider-viewport-width / $slider-visible-item);
 $slider-viewbox-width: 100vmin;
 $slider-viewbox-height: (calc(1 / $slider-viewbox-ratio)) * 100%;
-// $slider-viewbox-max-width: calc(50vh);
+$slider-viewbox-max-width: calc(50vh);
 $transition-scale: 1;
 $transition-duration: 0.4s;
 $transition-timing-function: cubic-bezier(0.62, 0.28, 0.23, 0.99);
@@ -55,7 +55,7 @@ body {
 }
 
 .#{$component} {
-	position: relative;
+	position: absolute;
 	top: 50%;
 	width: 100%;
 	transform: translateY(-50%);
@@ -72,7 +72,7 @@ body {
 		perspective: 100vw;
 		margin: 0 auto;
 		width: $slider-viewbox-width;
-		// max-width: $slider-viewbox-max-width;
+		max-width: $slider-viewbox-max-width;
 		// z-index: 0;
 
 		&::before {
@@ -134,7 +134,7 @@ body {
 		height: 100%;
 		opacity: 1;
 		color: rgba(255, 255, 255, 0);
-		transform: translate3d(0, 0, -15vh) rotateY(45deg);
+		transform: translate3d(-35%, 0, -15vh) rotateY(45deg);
 		transition: transform ($transition-duration) $transition-timing-function
 			(calc($transition-duration/4));
 
@@ -257,18 +257,18 @@ body {
 		}
 
 		&%item--previous {
-			transform: translate3d(-20%, 0, -10vh) rotateY(50deg);
+			transform: translate3d(-30%, 0, -10vh) rotateY(50deg);
 		}
 
 		&%item--next {
-			transform: translate3d(20%, 0, -10vh) rotateY(-50deg);
+			transform: translate3d(30%, 0, -10vh) rotateY(-50deg);
 
 			& .#{$component}-item__inner {
 				@extend %item--inactive__inner;
 			}
 
 			& ~ .#{$component}-item {
-				transform: translate3d(0, 0, -15vh) rotateY(-45deg);
+				transform: translate3d(35%, 0, -15vh) rotateY(-45deg);
 
 				& .#{$component}-item__inner {
 					@extend %item--inactive__inner;

@@ -38,7 +38,7 @@ body {
 }
 
 .slider {
-  position: relative;
+  position: absolute;
   top: 50%;
   width: 100%;
   transform: translateY(-50%);
@@ -54,6 +54,7 @@ body {
   perspective: 100vw;
   margin: 0 auto;
   width: 100vmin;
+  max-width: 50vh;
 }
 .slider__viewbox::before {
   position: relative;
@@ -118,7 +119,7 @@ input.slider-target {
   height: 100%;
   opacity: 1;
   color: rgba(255, 255, 255, 0);
-  transform: translate3d(0, 0, -15vh) rotateY(45deg);
+  transform: translate3d(-35%, 0, -15vh) rotateY(45deg);
   transition: transform 0.4s cubic-bezier(0.62, 0.28, 0.23, 0.99) 0.1s;
 }
 .slider-item:nth-child(1) {
@@ -208,13 +209,13 @@ input.slider-target {
   transform: translate3d(0, 0, 0) rotateY(0deg);
 }
 .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(7), .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(6), .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(5), .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(4), .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(3), .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(2), .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(1), .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(0) {
-  transform: translate3d(-20%, 0, -10vh) rotateY(50deg);
+  transform: translate3d(-30%, 0, -10vh) rotateY(50deg);
 }
 .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(9), .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(8), .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(7), .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(6), .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(5), .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(4), .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(3), .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(2) {
-  transform: translate3d(20%, 0, -10vh) rotateY(-50deg);
+  transform: translate3d(30%, 0, -10vh) rotateY(-50deg);
 }
 .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(9) ~ .slider-item, .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(8) ~ .slider-item, .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(7) ~ .slider-item, .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(6) ~ .slider-item, .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(5) ~ .slider-item, .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(4) ~ .slider-item, .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(3) ~ .slider-item, .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(2) ~ .slider-item {
-  transform: translate3d(0, 0, -15vh) rotateY(-45deg);
+  transform: translate3d(35%, 0, -15vh) rotateY(-45deg);
 }
 .card {
   display: block;
