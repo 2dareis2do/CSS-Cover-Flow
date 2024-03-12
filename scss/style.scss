@@ -356,10 +356,12 @@ body {
 		background-position: center center;
 		transition: opacity 0.4s $transition-timing-function;
 		img {
-				object-fit: cover;
-				width: 100%;
-				height: 100%;
-			}
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+		}
+		transition: transform 1s;
+		transform-style: preserve-3d;
 	}
 
 	&:hover &__image,
@@ -774,7 +776,12 @@ body {
 			background-image: var(--card-image);
 			background-size: cover;
 			background-position: center center;
-			transition: opacity 0.4s $transition-timing-function;
+			transition: all 0.4s $transition-timing-function;
+			// transform-origin: center;
+			transform-origin: center center;
+			&.is-flipped {
+				transform: rotateY(180deg);
+			}
 		}
 
 		&:hover &__image,
@@ -892,4 +899,20 @@ body {
 		}
 	}
 
+}
+
+.card__face {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	backface-visibility: hidden;
+}
+
+.card__face--front {
+	background: red;
+}
+
+.card__face--back {
+	background: blue;
+	transform: rotateY(180deg);
 }
