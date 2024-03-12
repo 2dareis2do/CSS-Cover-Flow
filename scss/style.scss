@@ -355,6 +355,11 @@ body {
 		background-size: cover;
 		background-position: center center;
 		transition: opacity 0.4s $transition-timing-function;
+		img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
 	}
 
 	&:hover &__image,
@@ -769,9 +774,7 @@ body {
 			background-image: var(--card-image);
 			background-size: cover;
 			background-position: center center;
-			// opacity: 0.8;
 			transition: opacity 0.4s $transition-timing-function;
-			// z-index: 0;
 		}
 
 		&:hover &__image,
