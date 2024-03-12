@@ -275,4 +275,14 @@
 
 
 
-</body></html>
+</body>
+<script>( function() {
+  const cards = document.querySelectorAll('.card__image');
+  for (let i = 0; i < cards.length; i++) {
+    cards[i].addEventListener( 'click', function() {
+      // console.log("click", this);
+		cards[i].classList.toggle('is-flipped');
+  });
+  }
+})();</script>
+</html>

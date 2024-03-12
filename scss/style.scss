@@ -362,6 +362,11 @@ body {
 		}
 		transition: transform 1s;
 		transform-style: preserve-3d;
+		transform-origin: center center;
+
+		&.is-flipped {
+			transform: rotateY(180deg);
+		}
 	}
 
 	&:hover &__image,
@@ -778,10 +783,10 @@ body {
 			background-position: center center;
 			transition: all 0.4s $transition-timing-function;
 			// transform-origin: center;
-			transform-origin: center center;
-			&.is-flipped {
-				transform: rotateY(180deg);
-			}
+			// transform-origin: center center;
+			// &.is-flipped {
+			// 	transform: rotateY(180deg);
+			// }
 		}
 
 		&:hover &__image,
