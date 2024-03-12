@@ -54,6 +54,39 @@ body {
 	overflow: hidden;
 }
 
+.card {
+	&-tag-list {
+			display: flex;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			flex-direction: row;
+			flex-wrap: wrap;
+			font-size: 1.4rem;
+			line-height: 1.2;
+			white-space: nowrap;
+			margin-left: -0.6rem;
+			margin-top: 1rem;
+	
+			&-title {
+				// display: inline-block;
+				// margin-left: 0.6rem;
+				// margin-top: 0.6rem;
+				float: right;
+				padding: 0.2rem 0.4rem;
+				border: solid 1px currentColor;
+				border-radius: 4px;
+				background: transparent;
+			}
+	
+			@media (max-height: 480px) {
+				& {
+					display: none;
+				}
+			}
+		}
+}
+
 .#{$component} {
 	position: relative;
 	top: 50%;
@@ -79,7 +112,8 @@ body {
 		margin: 0 auto;
 		width: $slider-viewbox-width;
 		max-width: $slider-viewbox-max-width;
-
+		perspective-origin: center;
+		
 		&::before {
 			position: relative;
 			top: 0;
@@ -313,7 +347,7 @@ body {
 		background-position: center center;
 		filter: blur(40px);
 		border-radius: 50%;
-		opacity: 0;
+		// opacity: 0;
 		transition: opacity calc($transition-duration/2) $transition-timing-function;
 	}
 
@@ -386,6 +420,7 @@ body {
 		left: 0;
 		right: 0;
 		bottom: 0;
+		top: 0;	
 		padding: 2.4rem;
 		font-size: 1.6rem;
 		line-height: 1.25;
@@ -396,7 +431,7 @@ body {
 		font-size: 3.2rem;
 		line-height: 1.2;
 		font-weight: bold;
-		margin-top: 0.8rem;
+		// margin-top: 0.8rem;
 		color: currentColor;
 
 		a {
@@ -418,7 +453,7 @@ body {
 
 	&-description {
 		display: none;
-		margin-top: 1.6rem;
+		// margin-top: 1.6rem;
 
 		@media (min-height: 640px) {
 			& {
@@ -438,12 +473,12 @@ body {
 		line-height: 1.2;
 		white-space: nowrap;
 		margin-left: -0.6rem;
-		margin-top: 1rem;
+		// margin-top: 1rem;
 
 		&-item {
 			display: inline-block;
-			margin-left: 0.6rem;
-			margin-top: 0.6rem;
+			// margin-left: 0.6rem;
+			// margin-top: 0.6rem;
 			padding: 0.2rem 0.4rem;
 			border: solid 1px currentColor;
 			border-radius: 4px;
@@ -750,7 +785,7 @@ body {
 			// transform: scale(1.15);
 			border-radius: 50%;
 			// overflow: hidden;
-			opacity: 0;
+			// opacity: 0;
 			transition: opacity calc($transition-duration/2) $transition-timing-function;
 		}
 
@@ -826,7 +861,7 @@ body {
 			font-size: 3.2rem;
 			line-height: 1.2;
 			font-weight: bold;
-			margin-top: 0.8rem;
+			// margin-top: 0.8rem;
 			color: currentColor;
 
 			a {

@@ -37,6 +37,32 @@ body {
   overflow: hidden;
 }
 
+.card-tag-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  margin-left: -0.6rem;
+  margin-top: 1rem;
+}
+.card-tag-list-title {
+  float: right;
+  padding: 0.2rem 0.4rem;
+  border: solid 1px currentColor;
+  border-radius: 4px;
+  background: transparent;
+}
+@media (max-height: 480px) {
+  .card-tag-list {
+    display: none;
+  }
+}
+
 .slider {
   position: relative;
   top: 50%;
@@ -60,6 +86,7 @@ body {
   margin: 0 auto;
   width: 100vmin;
   max-width: 50vh;
+  perspective-origin: center;
 }
 .slider__viewbox::before {
   position: relative;
@@ -246,7 +273,6 @@ input.slider-target {
   background-position: center center;
   filter: blur(40px);
   border-radius: 50%;
-  opacity: 0;
   transition: opacity 0.2s cubic-bezier(0.62, 0.28, 0.23, 0.99);
 }
 .card__face--back {
@@ -290,6 +316,7 @@ input.slider-target {
   left: 0;
   right: 0;
   bottom: 0;
+  top: 0;
   padding: 2.4rem;
   font-size: 1.6rem;
   line-height: 1.25;
@@ -299,7 +326,6 @@ input.slider-target {
   font-size: 3.2rem;
   line-height: 1.2;
   font-weight: bold;
-  margin-top: 0.8rem;
   color: currentColor;
 }
 .card-title a {
@@ -317,7 +343,6 @@ input.slider-target {
 }
 .card-description {
   display: none;
-  margin-top: 1.6rem;
 }
 @media (min-height: 640px) {
   .card-description {
@@ -335,12 +360,9 @@ input.slider-target {
   line-height: 1.2;
   white-space: nowrap;
   margin-left: -0.6rem;
-  margin-top: 1rem;
 }
 .card-tag-list-item {
   display: inline-block;
-  margin-left: 0.6rem;
-  margin-top: 0.6rem;
   padding: 0.2rem 0.4rem;
   border: solid 1px currentColor;
   border-radius: 4px;
@@ -592,7 +614,6 @@ input.slider-target {
     background-position: center center;
     filter: blur(40px);
     border-radius: 50%;
-    opacity: 0;
     transition: opacity 0.2s cubic-bezier(0.62, 0.28, 0.23, 0.99);
   }
   .card__container {
@@ -634,7 +655,6 @@ input.slider-target {
     font-size: 3.2rem;
     line-height: 1.2;
     font-weight: bold;
-    margin-top: 0.8rem;
     color: currentColor;
   }
   .card-title a {
