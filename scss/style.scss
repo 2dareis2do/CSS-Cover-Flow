@@ -165,7 +165,10 @@ body {
 		color: rgba(255, 255, 255, 0);
 		transform: translate3d(0, 0, -15vh) rotateX(-65deg);
 		// transition: transform (calc($transition-duration/2)) $transition-timing-function (calc($transition-duration/2));
-
+		transition: all (calc($transition-duration)) $transition-timing-function (
+				calc($transition-duration/2)
+			);
+		
 		@for $i from 1 through $slider-items {
 			&:nth-child(#{$i}) {
 				top: 50% * ($i - 1);
@@ -601,9 +604,6 @@ body {
 			color: rgba(255, 255, 255, 0);
 			transform: translate3d(-35%, 0, 15vh) rotateY(45deg);
 			// transition: transform (calc($transition-duration/2)) $transition-timing-function
-			transition: all (calc($transition-duration)) $transition-timing-function (
-				calc($transition-duration/2)
-			);
 			// 	(calc($transition-duration/2));
 
 			@for $i from 1 through $slider-items {
@@ -764,7 +764,7 @@ body {
 		// background: #000;
 		// color: currentColor;
 		color: transparent;
-		// transition: transition calc($transition-duration) linear;
+		transition: transition calc($transition-duration) linear;
 		
 		&__face--back {
 			// background: blue;
@@ -831,7 +831,7 @@ body {
 			background-image: var(--card-image);
 			background-size: cover;
 			background-position: center center;
-			// transition: transform $transition-duration $transition-timing-function;
+			transition: transform $transition-duration $transition-timing-function;
 			// transform-origin: center;
 			// transform-origin: center center;
 			// &.is-flipped {

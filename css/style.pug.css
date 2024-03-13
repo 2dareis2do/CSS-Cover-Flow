@@ -152,6 +152,7 @@ input.slider-target {
   opacity: 1;
   color: rgba(255, 255, 255, 0);
   transform: translate3d(0, 0, -15vh) rotateX(-65deg);
+  transition: all 0.4s cubic-bezier(0.2, 0.33, 0.66, 0.8) 0.2s;
 }
 .slider-item:nth-child(1) {
   top: 0%;
@@ -472,7 +473,6 @@ input.slider-target {
     opacity: 1;
     color: rgba(255, 255, 255, 0);
     transform: translate3d(-35%, 0, 15vh) rotateY(45deg);
-    transition: all 0.4s cubic-bezier(0.2, 0.33, 0.66, 0.8) 0.2s;
   }
   .slider-item:nth-child(1) {
     left: 0%;
@@ -580,6 +580,7 @@ input.slider-target {
     padding: 0;
     border-radius: 10px;
     color: transparent;
+    transition: transition 0.4s linear;
   }
   .card__face--back {
     transform: rotateY(180deg) rotateZ(0);
@@ -615,6 +616,7 @@ input.slider-target {
     background-image: var(--card-image);
     background-size: cover;
     background-position: center center;
+    transition: transform 0.4s cubic-bezier(0.2, 0.33, 0.66, 0.8);
   }
   .card__image.is-flipped {
     transform: rotateY(180deg);
