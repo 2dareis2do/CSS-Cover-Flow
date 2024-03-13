@@ -104,7 +104,7 @@ body {
   left: 0;
   bottom: 0;
   right: 0;
-  transition: transform 0.2s cubic-bezier(0.62, 0.28, 0.23, 0.99) 0.2s;
+  transition: all 0.4s cubic-bezier(0.2, 0.33, 0.66, 0.8) 0.2s;
   transform-style: preserve-3d;
 }
 .slider-target {
@@ -152,7 +152,6 @@ input.slider-target {
   opacity: 1;
   color: rgba(255, 255, 255, 0);
   transform: translate3d(0, 0, -15vh) rotateX(-65deg);
-  transition: transform 0.4s cubic-bezier(0.62, 0.28, 0.23, 0.99) 0.1s;
 }
 .slider-item:nth-child(1) {
   top: 0%;
@@ -196,7 +195,6 @@ input.slider-target {
   width: 100%;
   height: 100%;
   transform-origin: center center;
-  transition: transform 0.2s cubic-bezier(0.62, 0.28, 0.23, 0.99) 0s;
   backface-visibility: hidden;
 }
 .slider-item__inner::before, .slider-item__inner::after {
@@ -205,7 +203,6 @@ input.slider-target {
   content: "";
 }
 .slider-item__inner::before {
-  transition: transform 0.2s cubic-bezier(0.62, 0.28, 0.23, 0.99) 0.1s;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .slider-item__inner::after {
@@ -216,11 +213,9 @@ input.slider-target {
   pointer-events: none;
   background-repeat: repeat-x;
   background-size: 200% 100%;
-  transition: opacity 0.4s linear, background-position 0.2s linear;
 }
 .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(8) .slider-item__inner, .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(7) .slider-item__inner, .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(6) .slider-item__inner, .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(5) .slider-item__inner, .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(4) .slider-item__inner, .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(3) .slider-item__inner, .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(2) .slider-item__inner, .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(1) .slider-item__inner {
   transform: scale(1);
-  transition-delay: 0.4s;
 }
 .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(8) .slider-item__inner::before, .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(7) .slider-item__inner::before, .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(6) .slider-item__inner::before, .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(5) .slider-item__inner::before, .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(4) .slider-item__inner::before, .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(3) .slider-item__inner::before, .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(2) .slider-item__inner::before, .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(1) .slider-item__inner::before {
   transform: translate(0, 24px);
@@ -240,10 +235,10 @@ input.slider-target {
   transform: translate3d(0, 0, 10vw) rotateX(0deg);
 }
 .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(7), .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(6), .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(5), .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(4), .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(3), .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(2), .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(1), .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(0) {
-  transform: translate3d(0, 0%, -10vh) rotateX(-45deg);
+  transform: translate3d(0, 0%, 10vh) rotateX(-45deg);
 }
 .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(9), .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(8), .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(7), .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(6), .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(5), .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(4), .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(3), .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(2) {
-  transform: translate3d(0, 30%, 0vh) rotateX(-46deg);
+  transform: translate3d(0, 30%, 0vh) rotateX(-45deg);
 }
 .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(9) ~ .slider-item, .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(8) ~ .slider-item, .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(7) ~ .slider-item, .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(6) ~ .slider-item, .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(5) ~ .slider-item, .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(4) ~ .slider-item, .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(3) ~ .slider-item, .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(2) ~ .slider-item {
   transform: translate3d(0, 0, 0vh) rotateX(-50deg);
@@ -256,7 +251,6 @@ input.slider-target {
   padding: 0;
   border-radius: 10px;
   color: currentColor;
-  transition: color 0.2s linear 0.2s;
 }
 .card:focus {
   outline: 0;
@@ -273,7 +267,6 @@ input.slider-target {
   background-position: center center;
   filter: blur(40px);
   border-radius: 50%;
-  transition: opacity 0.2s cubic-bezier(0.62, 0.28, 0.23, 0.99);
 }
 .card__face--back {
   transform: rotateY(180deg) rotateZ(180deg);
@@ -293,8 +286,6 @@ input.slider-target {
   background-image: var(--card-image);
   background-size: cover;
   background-position: center center;
-  transition: opacity 0.4s cubic-bezier(0.62, 0.28, 0.23, 0.99);
-  transition: transform 1s;
   transform-style: preserve-3d;
   transform-origin: center center;
 }
@@ -435,7 +426,6 @@ input.slider-target {
     left: 0;
     bottom: 0;
     right: 0;
-    transition: transform 0.2s cubic-bezier(0.62, 0.28, 0.23, 0.99) 0.2s;
     transform-style: preserve-3d;
   }
   .slider-target {
@@ -481,8 +471,8 @@ input.slider-target {
     height: 100%;
     opacity: 1;
     color: rgba(255, 255, 255, 0);
-    transform: translate3d(-35%, 0, -15vh) rotateY(45deg);
-    transition: transform 0.4s cubic-bezier(0.62, 0.28, 0.23, 0.99) 0.1s;
+    transform: translate3d(-35%, 0, 15vh) rotateY(45deg);
+    transition: all 0.4s cubic-bezier(0.2, 0.33, 0.66, 0.8) 0.2s;
   }
   .slider-item:nth-child(1) {
     left: 0%;
@@ -534,7 +524,6 @@ input.slider-target {
     width: 100%;
     height: 100%;
     transform-origin: center center;
-    transition: transform 0.2s cubic-bezier(0.62, 0.28, 0.23, 0.99) 0s;
     backface-visibility: hidden;
   }
   .slider-item__inner::before, .slider-item__inner::after {
@@ -543,7 +532,6 @@ input.slider-target {
     content: "";
   }
   .slider-item__inner::before {
-    transition: transform 0.2s cubic-bezier(0.62, 0.28, 0.23, 0.99) 0.1s;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   }
   .slider-item__inner::after {
@@ -555,11 +543,9 @@ input.slider-target {
     background-repeat: repeat-x;
     background-size: 200% 100%;
     background-position: 0% 0%;
-    transition: opacity 0.4s linear, background-position 0.2s linear;
   }
   .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(1) .slider-item__inner, .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(2) .slider-item__inner, .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(3) .slider-item__inner, .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(4) .slider-item__inner, .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(5) .slider-item__inner, .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(6) .slider-item__inner, .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(7) .slider-item__inner, .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(8) .slider-item__inner {
     transform: scale(1);
-    transition-delay: 0.4s;
   }
   .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(1) .slider-item__inner::before, .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(2) .slider-item__inner::before, .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(3) .slider-item__inner::before, .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(4) .slider-item__inner::before, .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(5) .slider-item__inner::before, .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(6) .slider-item__inner::before, .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(7) .slider-item__inner::before, .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(8) .slider-item__inner::before {
     transform: translate(0, 24px);
@@ -578,13 +564,13 @@ input.slider-target {
     transform: translate3d(0, 0, 0) rotateY(0deg) scale(125%);
   }
   .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(0), .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(1), .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(2), .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(3), .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(4), .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(5), .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(6), .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(7) {
-    transform: translate3d(-30%, 0, -10vh) rotateY(50deg);
+    transform: translate3d(-30%, 0, 10vh) rotateY(50deg);
   }
   .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(2), .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(3), .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(4), .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(5), .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(6), .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(7), .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(8), .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(9) {
-    transform: translate3d(30%, 0, -10vh) rotateY(-50deg);
+    transform: translate3d(30%, 0, 10vh) rotateY(-50deg);
   }
   .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(2) ~ .slider-item, .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(3) ~ .slider-item, .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(4) ~ .slider-item, .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(5) ~ .slider-item, .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(6) ~ .slider-item, .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(7) ~ .slider-item, .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(8) ~ .slider-item, .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(9) ~ .slider-item {
-    transform: translate3d(35%, 0, -15vh) rotateY(-45deg);
+    transform: translate3d(35%, 0, 15vh) rotateY(-45deg);
   }
   .card {
     display: block;
@@ -593,8 +579,7 @@ input.slider-target {
     margin: 0;
     padding: 0;
     border-radius: 10px;
-    color: currentColor;
-    transition: all 0.2s linear 0.2s;
+    color: transparent;
   }
   .card__face--back {
     transform: rotateY(180deg) rotateZ(0);
@@ -614,7 +599,6 @@ input.slider-target {
     background-position: center center;
     filter: blur(40px);
     border-radius: 50%;
-    transition: opacity 0.2s cubic-bezier(0.62, 0.28, 0.23, 0.99);
   }
   .card__container {
     display: block;
@@ -631,7 +615,6 @@ input.slider-target {
     background-image: var(--card-image);
     background-size: cover;
     background-position: center center;
-    transition: all 0.4s cubic-bezier(0.62, 0.28, 0.23, 0.99);
   }
   .card__image.is-flipped {
     transform: rotateY(180deg);
