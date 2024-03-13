@@ -8,7 +8,8 @@ $slider-item-active: 5;
 // $slider-viewbox-width: calc($slider-viewport-width / $slider-visible-item);
 $slider-viewbox-width: 100vmin;
 $slider-viewbox-height: (calc(1 / $slider-viewbox-ratio)) * 100%;
-$slider-viewbox-max-width: calc(50vh);
+$slider-viewbox-max-width: 50vh;
+$slider-viewbox-max-width-mobile: 40vw;
 $transition-scale: 1;
 $transition-duration: .4s;
 $transition-timing-function: cubic-bezier(0.20, 0.33, 0.66, 0.80);
@@ -69,9 +70,6 @@ body {
 			margin-top: 1rem;
 	
 			&-title {
-				// display: inline-block;
-				// margin-left: 0.6rem;
-				// margin-top: 0.6rem;
 				float: right;
 				padding: 0.2rem 0.4rem;
 				border: solid 1px currentColor;
@@ -87,7 +85,7 @@ body {
 		}
 }
 
-.#{$component} {
+.slider {
 	position: relative;
 	top: 50%;
 	width: 100%;
@@ -108,10 +106,10 @@ body {
 	&__viewbox {
 		display: block;
 		position: relative;
-		perspective: 500vw;
+		perspective: 100vw;
 		margin: 0 auto;
 		width: $slider-viewbox-width;
-		max-width: $slider-viewbox-max-width;
+		max-width: $slider-viewbox-max-width-mobile;
 		perspective-origin: center;
 		
 		&::before {
@@ -132,7 +130,7 @@ body {
 		left: 0;
 		bottom: 0;
 		right: 0;
-		transition: all (calc($transition-duration)) $transition-timing-function (calc($transition-duration/2));
+		transition: all (calc($transition-duration)) $transition-timing-function (calc($transition-duration));
 		transform-style: preserve-3d;
 	}
 
@@ -148,7 +146,7 @@ body {
 		}
 
 		@for $i from 1 through $slider-items {
-			&:nth-of-type(#{$i}):checked~.#{$component}__viewport .#{$component}__container {
+			&:nth-of-type(#{$i}):checked~.slider__viewport .slider__container {
 				transform: translateY(-50% * ($i - 1));
 			}
 		}
@@ -163,10 +161,10 @@ body {
 		height: 100%;
 		opacity: 1;
 		color: rgba(255, 255, 255, 0);
-		transform: translate3d(0, 0, -15vh) rotateX(-65deg);
+		transform: translate3d(0, 0, 10vh) rotateX(-30deg);
 		// transition: transform (calc($transition-duration/2)) $transition-timing-function (calc($transition-duration/2));
 		transition: all (calc($transition-duration)) $transition-timing-function (
-				calc($transition-duration/2)
+				calc($transition-duration)
 			);
 		
 		@for $i from 1 through $slider-items {
@@ -199,10 +197,7 @@ body {
 			width: 100%;
 			height: 100%;
 			transform-origin: center center;
-			// transform: scale(.75);
-			// transition: transform (calc($transition-duration/2)) $transition-timing-function (calc($transition-duration/2));
 			backface-visibility: hidden;
-			// z-index: 10;
 
 			&::before,
 			&::after {
@@ -212,7 +207,6 @@ body {
 			}
 
 			&::before {
-				// transition: transform (calc($transition-duration/2)) $transition-timing-function (calc($transition-duration/2));
 				box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 			}
 
@@ -222,25 +216,12 @@ body {
 				width: 100%;
 				height: 100%;
 				pointer-events: none;
-				// z-index: 1;
-				// background-image: linear-gradient(
-				// 	90deg,
-				// 	rgba(0, 0, 0, 0) 0%,
-				// 	#000 50%,
-				// 	rgba(0, 0, 0, 0) 100%
-				// );
 				background-repeat: repeat-x;
 				background-size: 200% 100%;
-				// background-position: 0% 0%;
-				// transition: opacity $transition-duration linear,
-				// background-position (calc($transition-duration/2)) linear;
 			}
-
-
 
 			&%item--active__inner {
 				transform: scale(1);
-				// transition-delay: ($transition-duration);
 
 				&::before {
 					transform: translate(0, 24px);
@@ -265,36 +246,35 @@ body {
 
 		&%item--active {
 			color: #fff;
-			transform: translate3d(0, 0, 10vw) rotateX(0deg);
+			transform: translate3d(0, 0, 20vh) rotateX(0deg);
 
-			// transform: vtranslate3d(0, -10%, -0vh) rotateX(-20deg);
-			& .#{$component}-item__inner {
+			& .slider-item__inner {
 				@extend %item--active__inner;
 			}
 
-			& .#{$component}-item__trigger {
+			& .slider-item__trigger {
 				@extend %item--active__trigger;
 			}
 		}
 
 		&%item--previous {
 			// transform: translate3d(0, -10%, -10vh) rotateX(-60deg);
-			transform: translate3d(0, 0%, 10vh) rotateX(-45deg);
+			// transform: translate3d(0, -10%, 10vh) rotateX(-55deg);
+			transform: translate3d(0, 0%, 10vh) rotateX(-30deg)
 		}
 
 		&%item--next {
-			// transform: translate3d(0, 40%, 0vh) rotateX(-20deg);
-			transform: translate3d(0, 30%, 0vh) rotateX(-45deg);
-
-			& .#{$component}-item__inner {
+			// transform: translate3d(0, 30%, 10vh) rotateX(-55deg);
+			transform: translate3d(0, 0%, 10vh) rotateX(30deg);
+			& .slider-item__inner {
 				@extend %item--inactive__inner;
 			}
 
-			&~.#{$component}-item {
-				// transform: translate3d(0, 20%, 0vh) rotateX(-20deg);
-				transform: translate3d(0, 0, 0vh) rotateX(-50deg);
-				
-				& .#{$component}-item__inner {
+			&~.slider-item {
+				// transform: translate3d(0, 10%, 10vh) rotateX(-60deg);
+				// transform: translate3d(0, 50%, 10vh) rotateX(-60deg);
+				transform: translate3d(0, 0%, 10vh) rotateX(30deg);
+				& .slider-item__inner {
 					@extend %item--inactive__inner;
 				}
 			}
@@ -305,7 +285,7 @@ body {
 		$index: 1;
 
 		@while $index <=$slider-items {
-			&:nth-of-type(#{$index}):checked~.#{$component}__viewport .#{$component}-item {
+			&:nth-of-type(#{$index}):checked~.slider__viewport .slider-item {
 				&:nth-child(#{$index}) {
 					@extend %item--active;
 				}
@@ -325,14 +305,13 @@ body {
 }
 
 .card {
-	display: block;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	border-radius: 10px;
+	// display: block;
+	// width: 100%;
+	// height: 100%;
+	// margin: 0;
+	// padding: 0;
+	// border-radius: 10px;
 	color: currentColor;
-	// transition: color calc($transition-duration/2) linear calc($transition-duration/2);
 
 	&:focus {
 		outline: 0;
@@ -350,17 +329,11 @@ body {
 		background-position: center center;
 		filter: blur(40px);
 		border-radius: 50%;
-		// opacity: 0;
-		// transition: opacity calc($transition-duration/2) $transition-timing-function;
 	}
 
 	&__face--back {
-		// background: blue;
 		transform: rotateY(180deg) rotateZ(180deg);
 	}
-	// &:hover::before {
-	// 	opacity: 0.4;
-	// }
 
 	&__container {
 		display: block;
@@ -368,23 +341,6 @@ body {
 		height: 100%;
 		overflow: hidden;
 		border-radius: inherit;
-
-		// &>*,
-		// &> ::before,
-		// &> ::after {
-		// 	border-radius: inherit;
-		// }
-
-		// &::before {
-		// 	position: absolute;
-		// 	top: 0;
-		// 	left: 0;
-		// 	right: 0;
-		// 	bottom: 0;
-		// 	content: "";
-		// 	box-shadow: inset 1px 1px 0 0 rgba(255, 255, 255, 0.24), inset -1px -1px 0 0 rgba(0, 0, 0, 0.7);
-		// 	border-radius: inherit;
-		// }
 	}
 
 	&__image {
@@ -395,13 +351,14 @@ body {
 		background-image: var(--card-image);
 		background-size: cover;
 		background-position: center center;
-		// transition: opacity 0.4s $transition-timing-function;
+		transition: all (calc($transition-duration)) $transition-timing-function (
+				calc($transition-duration)
+			);
 		img {
 			object-fit: cover;
 			width: 100%;
 			height: 100%;
 		}
-		// transition: transform 1s;
 		transform-style: preserve-3d;
 		transform-origin: center center;
 
@@ -434,7 +391,6 @@ body {
 		font-size: 3.2rem;
 		line-height: 1.2;
 		font-weight: bold;
-		// margin-top: 0.8rem;
 		color: currentColor;
 
 		a {
@@ -456,7 +412,6 @@ body {
 
 	&-description {
 		display: none;
-		// margin-top: 1.6rem;
 
 		@media (min-height: 640px) {
 			& {
@@ -476,12 +431,9 @@ body {
 		line-height: 1.2;
 		white-space: nowrap;
 		margin-left: -0.6rem;
-		// margin-top: 1rem;
 
 		&-item {
 			display: inline-block;
-			// margin-left: 0.6rem;
-			// margin-top: 0.6rem;
 			padding: 0.2rem 0.4rem;
 			border: solid 1px currentColor;
 			border-radius: 4px;
@@ -529,7 +481,7 @@ body {
 /* Exact aspect ratio, put it at the bottom to avoid override*/
 @media (min-aspect-ratio: 1/1) {
 
-	.#{$component} {
+	.slider {
 		position: absolute;
 		top: 50%;
 		width: 100%;
@@ -568,8 +520,6 @@ body {
 			left: 0;
 			bottom: 0;
 			right: 0;
-			// transition: transform (calc($transition-duration/2)) $transition-timing-function
-			// 	(calc($transition-duration/2));
 			transform-style: preserve-3d;
 		}
 
@@ -586,8 +536,8 @@ body {
 
 			@for $i from 1 through $slider-items {
 				&:nth-of-type(#{$i}):checked
-					~ .#{$component}__viewport
-					.#{$component}__container {
+					~ .slider__viewport
+					.slider__container {
 					transform: translateX(-50% * ($i - 1));
 				}
 			}
@@ -602,7 +552,7 @@ body {
 			height: 100%;
 			opacity: 1;
 			color: rgba(255, 255, 255, 0);
-			transform: translate3d(-35%, 0, 15vh) rotateY(45deg);
+			transform: translate3d(-35%, 0, 5vh) rotateY(30deg);
 			// transition: transform (calc($transition-duration/2)) $transition-timing-function
 			// 	(calc($transition-duration/2));
 
@@ -613,34 +563,12 @@ body {
 				}
 			}
 
-			&__trigger {
-				display: block;
-				position: absolute;
-				top: 0;
-				left: 0;
-				bottom: 0;
-				right: 0;
-				z-index: 100;
-				cursor: pointer;
-
-				&%item--active__trigger {
-					display: none;
-				}
-
-				&%item--inactive__trigger {
-					display: block;
-				}
-			}
-
 			&__inner {
 				position: relative;
 				width: 100%;
 				height: 100%;
 				transform-origin: center center;
-				// transform: scale(.75);
-				// transition: transform (calc($transition-duration/2)) $transition-timing-function 0s;
 				backface-visibility: hidden;
-				// z-index: 10;
 
 				&::before,
 				&::after {
@@ -650,8 +578,6 @@ body {
 				}
 
 				&::before {
-					// transition: transform (calc($transition-duration/2)) $transition-timing-function
-					// 	(calc($transition-duration/4));
 					box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 				}
 
@@ -664,15 +590,12 @@ body {
 					background-repeat: repeat-x;
 					background-size: 200% 100%;
 					background-position: 0% 0%;
-					// transition: opacity $transition-duration linear,
-					// background-position:(calc($transition-duration/2)) linear;
 				}
 				
 				
 
 				&%item--active__inner {
 					transform: scale(1);
-					// transition-delay: ($transition-duration);
 
 					&::before {
 						transform: translate(0, 24px);
@@ -696,33 +619,32 @@ body {
 			}
 
 			&%item--active {
-				// color: #fff;
-				transform: translate3d(0, 0, 0) rotateY(0deg) scale(125%);
+				transform: translate3d(0, 0, 10vh) rotateY(0deg) scale(125%);
 
-				& .#{$component}-item__inner {
+				& .slider-item__inner {
 					@extend %item--active__inner;
 				}
 
-				& .#{$component}-item__trigger {
+				& .slider-item__trigger {
 					@extend %item--active__trigger;
 				}
 			}
 
 			&%item--previous {
-				transform: translate3d(-30%, 0, 10vh) rotateY(50deg);
+				transform: translate3d(-30%, 0, 5vh) rotateY(30deg);
 			}
 
 			&%item--next {
-				transform: translate3d(30%, 0, 10vh) rotateY(-50deg);
+				transform: translate3d(30%, 0, 5vh) rotateY(-30deg);
 
-				& .#{$component}-item__inner {
+				& .slider-item__inner {
 					@extend %item--inactive__inner;
 				}
 
-				& ~ .#{$component}-item {
-					transform: translate3d(35%, 0, 15vh) rotateY(-45deg);
+				& ~ .slider-item {
+					transform: translate3d(30%, 0, 5vh) rotateY(-30deg);
 
-					& .#{$component}-item__inner {
+					& .slider-item__inner {
 						@extend %item--inactive__inner;
 					}
 				}
@@ -733,8 +655,8 @@ body {
 			$index: 1;
 			@while $index <= $slider-items {
 				&:nth-of-type(#{$index}):checked
-					~ .#{$component}__viewport
-					.#{$component}-item {
+					~ .slider__viewport
+					.slider-item {
 					&:nth-child(#{$index}) {
 						@extend %item--active;
 					}
@@ -754,49 +676,16 @@ body {
 	}
 
 	.card {
-		// position: relative;
-		display: block;
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		padding: 0;
-		border-radius: 10px;
-		// background: #000;
-		// color: currentColor;
 		color: transparent;
-		transition: transition calc($transition-duration) linear;
 		
 		&__face--back {
-			// background: blue;
+			transition: all $transition-duration $transition-timing-function $transition-duration;
 			transform: rotateY(180deg) rotateZ(0);
 		}
 		
 		&:focus {
 			outline: 0;
 		}
-
-		&::before {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			content: "";
-			background-image: var(--card-image);
-			background-size: cover;
-			background-position: center center;
-			filter: blur(40px);
-			// transform: scale(1.15);
-			border-radius: 50%;
-			// overflow: hidden;
-			// opacity: 0;
-			// transition: opacity calc($transition-duration/2) $transition-timing-function;
-		}
-
-		// &:hover::before {
-		// 	opacity: 0.4;
-		// }
-	
 		
 		&__container {
 			display: block;
@@ -804,23 +693,6 @@ body {
 			height: 100%;
 			overflow: hidden;
 			border-radius: inherit;
-
-			// & > *,
-			// & > ::before,
-			// & > ::after {
-			// 	border-radius: inherit;
-			// }
-
-			// &::before {
-			// 	position: absolute;
-			// 	top: 0;
-			// 	left: 0;
-			// 	right: 0;
-			// 	bottom: 0;
-			// 	content: "";
-			// 	box-shadow: inset 1px 1px 0 0 rgba(255,255,255,0.24), inset -1px -1px 0 0 rgba(0,0,0,0.7);
-			// 	border-radius: inherit;
-			// }
 		}
 
 		&__image {
@@ -831,12 +703,6 @@ body {
 			background-image: var(--card-image);
 			background-size: cover;
 			background-position: center center;
-			transition: transform $transition-duration $transition-timing-function;
-			// transform-origin: center;
-			// transform-origin: center center;
-			// &.is-flipped {
-			// 	transform: rotateY(180deg);
-			// }
 			&.is-flipped {
 				transform: rotateY(180deg);
 			}
@@ -857,7 +723,6 @@ body {
 			padding: 2.4rem;
 			font-size: 1.6rem;
 			line-height: 1.25;
-			// z-index: 2;
 		}
 
 		&-title {
@@ -865,7 +730,6 @@ body {
 			font-size: 3.2rem;
 			line-height: 1.2;
 			font-weight: bold;
-			// margin-top: 0.8rem;
 			color: currentColor;
 
 			a {
@@ -981,12 +845,3 @@ body {
 		border-radius: inherit;
 	}
 }
-
-.card__face--front {
-	// background: red;
-}
-
-// .card__face--back {
-// 	// background: blue;
-// 	transform: rotateY(180deg) rotateZ(180deg);
-// }
