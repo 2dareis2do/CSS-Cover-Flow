@@ -541,7 +541,7 @@ body {
 			// height: 100%;
 			// opacity: 1;
 			// color: rgba(255, 255, 255, 0);
-			transform: translate3d(-35%, 0, 5vh) rotateY(30deg);
+			transform: translate3d(-35%, 0, 10vh) rotateY(30deg);
 			// transition: transform (calc($transition-duration/2)) $transition-timing-function (calc($transition-duration/2));
 
 			@for $i from 1 through $slider-items {
@@ -618,18 +618,18 @@ body {
 			}
 
 			&%item--previous {
-				transform: translate3d(-30%, 0, 5vh) rotateY(30deg);
+				transform: translate3d(-30%, 0, 10vh) rotateY(30deg);
 			}
 
 			&%item--next {
-				transform: translate3d(30%, 0, 5vh) rotateY(-30deg);
+				transform: translate3d(30%, 0, 10vh) rotateY(-30deg);
 
 				& .slider-item__inner {
 					@extend %item--inactive__inner;
 				}
 
 				& ~ .slider-item {
-					transform: translate3d(30%, 0, 5vh) rotateY(-30deg);
+					transform: translate3d(30%, 0, 10vh) rotateY(-30deg);
 
 					& .slider-item__inner {
 						@extend %item--inactive__inner;
