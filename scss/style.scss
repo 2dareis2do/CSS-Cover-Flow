@@ -500,25 +500,25 @@ body {
 			}
 		}
 
-		&__container {
-			position: absolute;
-			top: 0;
-			left: 0;
-			bottom: 0;
-			right: 0;
-			transform-style: preserve-3d;
-		}
+		// &__container {
+		// 	position: absolute;
+		// 	top: 0;
+		// 	left: 0;
+		// 	bottom: 0;
+		// 	right: 0;
+		// 	transform-style: preserve-3d;
+		// }
 
 		&-target {
-			position: absolute;
-			width: 0;
-			height: 0;
-			opacity: 0;
-			visibility: hidden;
+			// position: absolute;
+			// width: 0;
+			// height: 0;
+			// opacity: 0;
+			// visibility: hidden;
 
-			@at-root input#{&} {
-				display: none;
-			}
+			// @at-root input#{&} {
+			// 	display: none;
+			// }
 
 			@for $i from 1 through $slider-items {
 				&:nth-of-type(#{$i}):checked
