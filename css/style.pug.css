@@ -135,6 +135,66 @@ input.slider-target {
 .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider__container {
   transform: translateY(-350%);
 }
+.slider-target-flip {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+input.slider-target-flip {
+  display: none;
+  pointer-events: none;
+}
+
+.slider-target-flip:nth-of-type(1) ~ .slider__viewport .slider__container .slider-item:nth-of-type(1) .card__image {
+  transform: scale(100%);
+}
+.slider-target-flip:nth-of-type(2) ~ .slider__viewport .slider__container .slider-item:nth-of-type(2) .card__image {
+  transform: scale(100%);
+}
+.slider-target-flip:nth-of-type(3) ~ .slider__viewport .slider__container .slider-item:nth-of-type(3) .card__image {
+  transform: scale(100%);
+}
+.slider-target-flip:nth-of-type(4) ~ .slider__viewport .slider__container .slider-item:nth-of-type(4) .card__image {
+  transform: scale(100%);
+}
+.slider-target-flip:nth-of-type(5) ~ .slider__viewport .slider__container .slider-item:nth-of-type(5) .card__image {
+  transform: scale(100%);
+}
+.slider-target-flip:nth-of-type(6) ~ .slider__viewport .slider__container .slider-item:nth-of-type(6) .card__image {
+  transform: scale(100%);
+}
+.slider-target-flip:nth-of-type(7) ~ .slider__viewport .slider__container .slider-item:nth-of-type(7) .card__image {
+  transform: scale(100%);
+}
+.slider-target-flip:nth-of-type(8) ~ .slider__viewport .slider__container .slider-item:nth-of-type(8) .card__image {
+  transform: scale(100%);
+}
+.slider-target-flip:nth-of-type(9):checked ~ .slider__viewport .slider__container .slider-item:nth-of-type(1) .card__image {
+  transform: rotateX(180deg);
+}
+.slider-target-flip:nth-of-type(10):checked ~ .slider__viewport .slider__container .slider-item:nth-of-type(2) .card__image {
+  transform: rotateX(180deg);
+}
+.slider-target-flip:nth-of-type(11):checked ~ .slider__viewport .slider__container .slider-item:nth-of-type(3) .card__image {
+  transform: rotateX(180deg);
+}
+.slider-target-flip:nth-of-type(12):checked ~ .slider__viewport .slider__container .slider-item:nth-of-type(4) .card__image {
+  transform: rotateX(180deg);
+}
+.slider-target-flip:nth-of-type(13):checked ~ .slider__viewport .slider__container .slider-item:nth-of-type(5) .card__image {
+  transform: rotateX(180deg);
+}
+.slider-target-flip:nth-of-type(14):checked ~ .slider__viewport .slider__container .slider-item:nth-of-type(6) .card__image {
+  transform: rotateX(180deg);
+}
+.slider-target-flip:nth-of-type(15):checked ~ .slider__viewport .slider__container .slider-item:nth-of-type(7) .card__image {
+  transform: rotateX(180deg);
+}
+.slider-target-flip:nth-of-type(16):checked ~ .slider__viewport .slider__container .slider-item:nth-of-type(8) .card__image {
+  transform: rotateX(180deg);
+}
 .slider-item {
   display: block;
   position: absolute;
@@ -183,6 +243,19 @@ input.slider-target {
 }
 .slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(8) .slider-item__trigger, .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(7) .slider-item__trigger, .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(6) .slider-item__trigger, .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(5) .slider-item__trigger, .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(4) .slider-item__trigger, .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(3) .slider-item__trigger, .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(2) .slider-item__trigger, .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(1) .slider-item__trigger {
   display: none;
+}
+.slider-item__flipper {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  cursor: pointer;
+}
+.slider-target:nth-of-type(8):checked ~ .slider__viewport .slider-item:nth-child(8) .slider-item__flipper, .slider-target:nth-of-type(7):checked ~ .slider__viewport .slider-item:nth-child(7) .slider-item__flipper, .slider-target:nth-of-type(6):checked ~ .slider__viewport .slider-item:nth-child(6) .slider-item__flipper, .slider-target:nth-of-type(5):checked ~ .slider__viewport .slider-item:nth-child(5) .slider-item__flipper, .slider-target:nth-of-type(4):checked ~ .slider__viewport .slider-item:nth-child(4) .slider-item__flipper, .slider-target:nth-of-type(3):checked ~ .slider__viewport .slider-item:nth-child(3) .slider-item__flipper, .slider-target:nth-of-type(2):checked ~ .slider__viewport .slider-item:nth-child(2) .slider-item__flipper, .slider-target:nth-of-type(1):checked ~ .slider__viewport .slider-item:nth-child(1) .slider-item__flipper {
+  display: block;
 }
 .slider-item__inner {
   position: relative;
@@ -505,9 +578,6 @@ input.slider-target {
     background-image: var(--card-image);
     background-size: cover;
     background-position: center center;
-  }
-  .card__image.is-flipped {
-    transform: rotateY(180deg);
   }
   .card:hover .card__image, .card:focus .card__image {
     opacity: 1;

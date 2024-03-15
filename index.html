@@ -15,20 +15,35 @@
 <body translate="no">
   <div class="container">
   <div class="slider">
-    <input class="slider-target" type="radio" id="slide-0" name="slider">
-    <input class="slider-target" type="radio" id="slide-1" name="slider">
-    <input class="slider-target" type="radio" id="slide-2" name="slider">
-    <input class="slider-target" type="radio" id="slide-3" name="slider" checked="checked">
-    <input class="slider-target" type="radio" id="slide-4" name="slider">
-    <input class="slider-target" type="radio" id="slide-5" name="slider">
-    <input class="slider-target" type="radio" id="slide-6" name="slider">
-		<input class="slider-target" type="radio" id="slide-7" name="slider">
+    <!-- <div class="one"> -->
+  <input class="slider-target" type="radio" id="slide-0" name="slider">
+  <input class="slider-target" type="radio" id="slide-1" name="slider">
+  <input class="slider-target" type="radio" id="slide-2" name="slider">
+  <input class="slider-target" type="radio" id="slide-3" name="slider" checked="checked">
+  <input class="slider-target" type="radio" id="slide-4" name="slider">
+  <input class="slider-target" type="radio" id="slide-5" name="slider">
+  <input class="slider-target" type="radio" id="slide-6" name="slider">
+  <input class="slider-target" type="radio" id="slide-7" name="slider">
+  <!-- </div> -->
+      <!-- <div class="two"> -->
+  <input class="slider-target-flip" type="checkbox" id="flipper-0" name="flipper">
+  <input class="slider-target-flip" type="checkbox" id="flipper-1" name="flipper">
+  <input class="slider-target-flip" type="checkbox" id="flipper-2" name="flipper">
+  <input class="slider-target-flip" type="checkbox" id="flipper-3" name="flipper">
+  <input class="slider-target-flip" type="checkbox" id="flipper-4" name="flipper" >
+  <input class="slider-target-flip" type="checkbox" id="flipper-5" name="flipper">
+  <input class="slider-target-flip" type="checkbox" id="flipper-6" name="flipper">
+	<input class="slider-target-flip" type="checkbox" id="flipper-7" name="flipper">
+  <!-- </div> -->
+    
     <div class="slider__viewport">
       <div class="slider__viewbox">
         <div class="slider__container">
           <div class="slider-item card">
             <div class="slider-item__inner">
               <label class="slider-item__trigger" for="slide-0" title="Show product 0"></label>
+              <label class="slider-item__flipper" for="flipper-0" title="Flip product 0"></label>
+
                 <div class="card__container">
                   <div class="card__image">
                     <div class="card__face card__face--front">
@@ -52,7 +67,9 @@
           <div class="slider-item card" >
             <div class="slider-item__inner">
               <label class="slider-item__trigger" for="slide-1" title="Show product 1"></label>
-                <div class="card__container">
+              <label class="slider-item__flipper" for="flipper-1" title="Flip product 1"></label>
+
+              <div class="card__container">
                   <div class="card__image">
                     <div class="card__face card__face--front">
                       <img class="img img--single" src="./img/max_richter_front.jpeg" alt="album front" title="album front">
@@ -75,7 +92,9 @@
           <div class="slider-item card">
             <div class="slider-item__inner">
               <label class="slider-item__trigger" for="slide-2" title="Show product 2"></label>
-                <div class="card__container">
+              <label class="slider-item__flipper" for="flipper-2" title="Flip product 2"></label>
+
+              <div class="card__container">
                   <div class="card__image">
                     <div class="card__face card__face--front">
                       <img class="img img--single" src="./img/sunno_front.jpeg" alt="album1" title="album1">
@@ -98,7 +117,9 @@
           <div class="slider-item card" >
             <div class="slider-item__inner">
               <label class="slider-item__trigger" for="slide-3" title="Show product 3"></label>
-                <div class="card__container">
+              <label class="slider-item__flipper" for="flipper-3" title="Flip product 3"></label>
+
+              <div class="card__container">
                   <div class="card__image">
                     <div class="card__face card__face--front">
                       <img class="img img--single" src="./img/swell_too_many_days_without_thinking.jpeg" alt="album front" title="front">
@@ -122,7 +143,9 @@
           <div class="slider-item card" >
             <div class="slider-item__inner">
               <label class="slider-item__trigger" for="slide-4" title="Show product 4"></label>
-                <div class="card__container">
+              <label class="slider-item__flipper" for="flipper-4" title="Flip product 4"></label>
+
+              <div class="card__container">
                   <div class="card__image">
                     <div class="card__face card__face--front">
                       <img class="img img--single" src="./img/minutemen_front.jpeg" alt="Minuteman" title="Minuteman">
@@ -150,7 +173,9 @@
           <div class="slider-item card">
             <div class="slider-item__inner">
               <label class="slider-item__trigger" for="slide-5" title="Show product 5"></label>
-                <div class="card__container">
+              <label class="slider-item__flipper" for="flipper-5" title="Flip product 5"></label>
+
+              <div class="card__container">
                   <div class="card__image">
                     <div class="card__face card__face--front">
                       <img class="img img--single" src="./img/massive_attack_front.jpeg" alt="album1" title="The Batman">
@@ -174,6 +199,8 @@
           <div class="slider-item card" >
             <div class="slider-item__inner">
               <label class="slider-item__trigger" for="slide-6" title="Show product 6"></label>
+              <label class="slider-item__flipper" for="flipper-6" title="Flip product 6"></label>
+
                 <div class="card__container">
                   <div class="card__image">
                     <div class="card__face card__face--front">
@@ -197,7 +224,9 @@
 					<div class="slider-item card">
             <div class="slider-item__inner">
               <label class="slider-item__trigger" for="slide-7" title="Show product 7"></label>
-                <div class="card__container">
+              <label class="slider-item__flipper" for="flipper-7" title="Flip product 7"></label>
+
+              <div class="card__container">
                   <div class="card__image">
                     <div class="card__face card__face--front">
                       <img class="img img--single" src="./img/boards_of_canada_front.jpeg" alt="album front" title="album front" >
@@ -230,7 +259,7 @@
 
 
 </body>
-<script>( function() {
+<!-- <script>( function() {
   const cards = document.querySelectorAll('.card__image');
   for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener( 'click', function() {
@@ -238,5 +267,5 @@
 		cards[i].classList.toggle('is-flipped');
   });
   }
-})();</script>
+})();</script> -->
 </html>

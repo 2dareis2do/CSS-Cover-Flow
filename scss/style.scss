@@ -12,7 +12,6 @@ $slider-viewbox-max-width-mobile: 40vw;
 $transition-scale: 1;
 $transition-duration: .4s;
 $transition-timing-function: cubic-bezier(0.62, 0.28, 0.23, 0.99);
-// $transition-timing-function: ease;
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,700&display=swap");
 
 html {
@@ -44,7 +43,6 @@ body {
 	-webkit-font-smoothing: antialiased;
 	margin: 0;
 	padding: 0;
-	// background-image: radial-gradient(circle at center, #444444, #1d1e22 80%, #1d1e22 100%);
 }
 
 .container {
@@ -142,7 +140,43 @@ body {
 				transform: translateY(-50% * ($i - 1));
 			}
 		}
+		
+		
 	}
+	
+	&-target-flip {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+		visibility: hidden;
+
+		@at-root input#{&} {
+			display: none;
+			pointer-events: none;
+		}
+
+		@for $i from 1 through $slider-items {
+			&:nth-of-type(#{$i})~.slider__viewport .slider__container .slider-item:nth-of-type(#{$i}) .card__image {
+			// &:nth-of-type(#{$i}):checked~.slider__viewport .slider-item:nth-of-type(#{$i}) .card__image {
+				// transform: rotateX(180deg);
+				transform: scale(100%);
+			}
+		}
+		
+		@for $i from 1 through $slider-items {
+			&:nth-of-type(#{$i + $slider-items}):checked~.slider__viewport .slider__container .slider-item:nth-of-type(#{$i}) .card__image {
+				// &:nth-of-type(#{$i}):checked~.slider__viewport .slider-item:nth-of-type(#{$i}) .card__image {
+				transform: rotateX(180deg);
+				// transform: rotate(15deg);
+			}
+		}
+		
+		
+
+	}
+	
+	
 
 	&-item {
 		display: block;
@@ -155,7 +189,6 @@ body {
 		color: rgba(255, 255, 255, 0);
 		transform: translate3d(0, 0, 10vh) rotateX(-30deg);
 		transition: transform calc($transition-duration/2) $transition-timing-function calc($transition-duration/4);
-		// transition: transform $transition-duration $transition-timing-function calc($transition-duration/4);
 		
 		@for $i from 1 through $slider-items {
 			&:nth-child(#{$i}) {
@@ -181,6 +214,21 @@ body {
 				display: block;
 			}
 		}
+		
+		&__flipper {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			z-index: 100;
+			cursor: pointer;
+
+			&%item--active__flipper {
+				display: block;
+			}
+		}
 
 		&__inner {
 			position: relative;
@@ -188,10 +236,8 @@ body {
 			height: 100%;
 			transform-origin: center center;
 			backface-visibility: hidden;
-			// transform: translate3d(0, 0, 10vh) rotateX(-30deg);
 			transform: scale(0.75);
 			transition: transform calc($transition-duration/2) $transition-timing-function 0s;
-			// transition-delay: ($transition-duration);
 			&::before,
 			&::after {
 				display: block;
@@ -249,6 +295,10 @@ body {
 			& .slider-item__trigger {
 				@extend %item--active__trigger;
 			}
+			
+			& .slider-item__flipper {
+				@extend %item--active__flipper;
+			}
 		}
 
 		&%item--previous {
@@ -294,12 +344,6 @@ body {
 }
 
 .card {
-	// display: block;
-	// width: 100%;
-	// height: 100%;
-	// margin: 0;
-	// padding: 0;
-	// border-radius: 10px;
 	color: currentColor;
 
 	&:focus {
@@ -489,7 +533,6 @@ body {
 			margin: 0 auto;
 			width: $slider-viewbox-width;
 			max-width: $slider-viewbox-max-width;
-			// z-index: 0;
 
 			&::before {
 				position: relative;
@@ -503,25 +546,8 @@ body {
 			}
 		}
 
-		// &__container {
-		// 	position: absolute;
-		// 	top: 0;
-		// 	left: 0;
-		// 	bottom: 0;
-		// 	right: 0;
-		// 	transform-style: preserve-3d;
-		// }
 
 		&-target {
-			// position: absolute;
-			// width: 0;
-			// height: 0;
-			// opacity: 0;
-			// visibility: hidden;
-
-			// @at-root input#{&} {
-			// 	display: none;
-			// }
 
 			@for $i from 1 through $slider-items {
 				&:nth-of-type(#{$i}):checked
@@ -533,14 +559,7 @@ body {
 		}
 
 		&-item {
-			// display: block;
-			// position: absolute;
-			// top: 0;
-			// left: 0;
-			// width: 100%;
-			// height: 100%;
-			// opacity: 1;
-			// color: rgba(255, 255, 255, 0);
+
 			transform: translate3d(-35%, 0, 10vh) rotateY(30deg);
 			// transition: transform (calc($transition-duration/2)) $transition-timing-function (calc($transition-duration/2));
 
@@ -551,62 +570,7 @@ body {
 				}
 			}
 
-			&__inner {
-				// position: relative;
-				// width: 100%;
-				// height: 100%;
-				// transform-origin: center center;
-				// backface-visibility: hidden;
-
-				// &::before,
-				// &::after {
-				// 	display: block;
-				// 	position: absolute;
-				// 	content: "";
-				// }
-
-				// &::before {
-				// 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-				// }
-
-				// &::after {
-				// 	top: 0;
-				// 	left: 0;
-				// 	width: 100%;
-				// 	height: 100%;
-				// 	pointer-events: none;
-				// 	background-repeat: repeat-x;
-				// 	background-size: 200% 100%;
-				// 	background-position: 0% 0%;
-				// }
-
-				// &%item--active__inner {
-				// 	transform: scale(1);
-				// 	transition-delay: ($transition-duration);
-					
-				// 	&::before {
-				// 		transform: translate(0, 24px);
-				// 	}
-
-				// 	&::after {
-				// 		background-position: -50% 0%;
-				// 		opacity: 0;
-				// 	}
-				// }
-
-				// &%item--inactive__inner {
-				// 	&::before {
-				// 		transform: translate(24px, 12px);
-				// 	}
-
-				// 	&::after {
-				// 		background-position: -100% 0%;
-				// 	}
-				// }
-			}
-
 			&%item--active {
-				// transform: translate3d(0, 0, 10vh) rotateY(0deg);
 
 				& .slider-item__inner {
 					@extend %item--active__inner;
@@ -615,6 +579,10 @@ body {
 				& .slider-item__trigger {
 					@extend %item--active__trigger;
 				}
+				
+				// & .slider-item__flipper {
+				// 	@extend %item--active__flipper;
+				// }
 			}
 
 			&%item--previous {
@@ -638,28 +606,28 @@ body {
 			}
 		}
 
-		&-target {
-			$index: 1;
-			@while $index <= $slider-items {
-				&:nth-of-type(#{$index}):checked
-					~ .slider__viewport
-					.slider-item {
-					&:nth-child(#{$index}) {
-						@extend %item--active;
-					}
+		// &-target {
+		// 	$index: 1;
+		// 	@while $index <= $slider-items {
+		// 		&:nth-of-type(#{$index}):checked
+		// 			~ .slider__viewport
+		// 			.slider-item {
+		// 			&:nth-child(#{$index}) {
+		// 				@extend %item--active;
+		// 			}
 
-					&:nth-child(#{$index + 1}) {
-						@extend %item--next;
-					}
+		// 			&:nth-child(#{$index + 1}) {
+		// 				@extend %item--next;
+		// 			}
 
-					&:nth-child(#{$index - 1}) {
-						@extend %item--previous;
-					}
-				}
+		// 			&:nth-child(#{$index - 1}) {
+		// 				@extend %item--previous;
+		// 			}
+		// 		}
 
-				$index: $index + 1;
-			}
-		}
+		// 		$index: $index + 1;
+		// 	}
+		// }
 	}
 
 	.card {
@@ -690,9 +658,9 @@ body {
 			background-image: var(--card-image);
 			background-size: cover;
 			background-position: center center;
-			&.is-flipped {
-				transform: rotateY(180deg);
-			}
+			// &.is-flipped {
+			// 	transform: rotateY(180deg);
+			// }
 		}
 
 		&:hover &__image,
