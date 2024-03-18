@@ -2,7 +2,7 @@
 
 Forked from https://codepen.io/bjezyk/pen/rjxgqm
 
-This is a proof of concept that demonstrates using pure css to create a
+This is a proof of concept that demonstrates using pure css (no js) to create a
 "Cover Flow" component or view inspired by Apple's original cover flow
 design. https://en.wikipedia.org/wiki/Cover_Flow
 
